@@ -1,0 +1,12 @@
+name = "aicloud-contact-v1"
+compatibility_date = "2026-06-25"
+workers_dev = false
+preview_urls = false
+
+[[routes]]
+pattern = "aicloud.contact"
+custom_domain = true
+
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
