@@ -11,33 +11,35 @@ const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/dde4b214-5
 ---
 
 <Layout title={title} description={description} ogImage={ogImage}>
-  <SEO title={title} description={description} ogImage={ogImage} pathname="/" />
-  <StructuredData
-    schema={{
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'WebSite',
-          name: 'aicloud.contact',
-          description: description,
-          url: 'https://aicloud.contact',
-        },
-        {
-          '@type': 'Product',
-          name: 'aicloud.contact Domain',
-          description: 'Premium domain name for artificial intelligence infrastructure, cloud platforms, and enterprise AI services. A meaningful .contact domain at the intersection of AI and cloud computing.',
-          offers: {
-            '@type': 'Offer',
-            availability: 'https://schema.org/InStock',
-            price: '5555',
-            priceCurrency: 'USD',
-            url: 'https://aicloud.contact',
-            businessFunction: 'https://schema.org/Sell',
+  <Fragment slot="head">
+    <SEO title={title} description={description} ogImage={ogImage} pathname="/" />
+    <StructuredData
+      schema={{
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebSite',
+            name: 'aicloud.contact',
+            description: description,
+            url: 'https://aicloud.contact/',
           },
-        },
-      ],
-    }}
-  />
+          {
+            '@type': 'Product',
+            name: 'aicloud.contact Domain',
+            description: 'Premium domain name for artificial intelligence infrastructure, cloud platforms, and enterprise AI services. A meaningful .contact domain at the intersection of AI and cloud computing.',
+            offers: {
+              '@type': 'Offer',
+              availability: 'https://schema.org/InStock',
+              price: '5555',
+              priceCurrency: 'USD',
+              url: 'https://aicloud.contact/',
+              businessFunction: 'https://schema.org/Sell',
+            },
+          },
+        ],
+      }}
+    />
+  </Fragment>
 
   <!-- Hero Section -->
   <header

@@ -8,8 +8,6 @@ interface Props {
 }
 
 const { title, description = 'aicloud.contact — The AI Cloud Contact. A premium domain for artificial intelligence infrastructure, cloud platforms, enterprise AI services, and professional connection in the AI cloud era.', ogImage } = Astro.props;
-const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
-const canonicalURL = new URL(pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -18,7 +16,6 @@ const canonicalURL = new URL(pathname, Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalURL} />
 
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="rP6qCe0XCcwE5h727WTTd0ouABlop7kIT6J7ldc7hp0" />
