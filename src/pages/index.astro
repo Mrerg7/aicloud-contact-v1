@@ -5,7 +5,7 @@ import StructuredData from '../components/StructuredData.astro';
 
 const title = 'aicloud.contact | The AI Cloud Contact — Premium Domain';
 const description =
-  'aicloud.contact — The AI Cloud Contact. A premium domain for artificial intelligence infrastructure, cloud platforms, enterprise AI services, and professional connection in the AI cloud era.';
+  'Buy aicloud.contact, a premium .contact domain for AI infrastructure, cloud platforms, and enterprise services. Available now for $5,555 with secure escrow transfer.';
 const ogImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/dde4b214-5d99-4e87-f9ae-2c9014f6ab00/public';
 const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/dde4b214-5d99-4e87-f9ae-2c9014f6ab00/public';
 ---
@@ -18,23 +18,45 @@ const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/dde4b214-5
         '@context': 'https://schema.org',
         '@graph': [
           {
-            '@type': 'WebSite',
-            name: 'aicloud.contact',
-            description: description,
+          '@type': 'Organization',
+          '@id': 'https://aicloud.contact/#organization',
+          name: 'aicloud.contact',
             url: 'https://aicloud.contact/',
+          logo: 'https://aicloud.contact/favicon.svg',
+          email: 'sales@desertrich.com',
+        },
+        {
+          '@type': 'WebSite',
+          '@id': 'https://aicloud.contact/#website',
+          name: 'aicloud.contact',
+          description: description,
+          url: 'https://aicloud.contact/',
+          publisher: { '@id': 'https://aicloud.contact/#organization' },
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://aicloud.contact/#webpage',
+          name: title,
+          description,
+          url: 'https://aicloud.contact/',
+          isPartOf: { '@id': 'https://aicloud.contact/#website' },
+        },
+        {
+          '@type': 'Product',
+          '@id': 'https://aicloud.contact/#product',
+          name: 'aicloud.contact Domain',
+          category: 'Premium domain name',
+          brand: { '@id': 'https://aicloud.contact/#organization' },
+          description: 'Premium .contact domain name for artificial intelligence infrastructure, cloud platforms, and enterprise AI services.',
+          offers: {
+            '@type': 'Offer',
+            availability: 'https://schema.org/InStock',
+            price: 5555,
+            priceCurrency: 'USD',
+            url: 'https://aicloud.contact/',
+            businessFunction: 'https://schema.org/Sell',
+            seller: { '@id': 'https://aicloud.contact/#organization' },
           },
-          {
-            '@type': 'Product',
-            name: 'aicloud.contact Domain',
-            description: 'Premium domain name for artificial intelligence infrastructure, cloud platforms, and enterprise AI services. A meaningful .contact domain at the intersection of AI and cloud computing.',
-            offers: {
-              '@type': 'Offer',
-              availability: 'https://schema.org/InStock',
-              price: '5555',
-              priceCurrency: 'USD',
-              url: 'https://aicloud.contact/',
-              businessFunction: 'https://schema.org/Sell',
-            },
           },
         ],
       }}
@@ -68,13 +90,18 @@ const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/dde4b214-5
         The definitive point of connection.
       </p>
 
+      <p class="mb-8 text-sm font-medium text-white/70" aria-label="Domain availability and price">
+        Available now <span class="mx-2 text-white/30" aria-hidden="true">&bull;</span> $5,555 USD
+        <span class="mx-2 text-white/30" aria-hidden="true">&bull;</span> Escrow protected
+      </p>
+
       <!-- CTAs -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
           href="#inquire"
           class="group w-full sm:w-auto inline-flex items-center justify-center gap-x-3 px-9 py-4 text-lg font-semibold rounded-3xl bg-gradient-to-r from-[#22f5ff] to-[#a855f7] text-[#0a0a0f] hover:brightness-105 active:scale-[0.985] transition-all shadow-xl shadow-[#22f5ff]/20"
         >
-          <span>Secure This Asset</span>
+          <span>Buy or Make an Offer</span>
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M14 5l7 7-7 7m-4-7h11" />
           </svg>
@@ -375,15 +402,15 @@ const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/dde4b214-5
       </form>
 
       <!-- Success Message (hidden by default) -->
-      <div id="success-message" class="hidden mt-6 glass rounded-3xl p-8 border border-emerald-400/30 text-center">
+      <div id="success-message" class="hidden mt-6 glass rounded-3xl p-8 border border-emerald-400/30 text-center" aria-live="polite">
         <div class="mx-auto w-14 h-14 rounded-full bg-emerald-400/10 flex items-center justify-center mb-5">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21V3" />
           </svg>
         </div>
-        <h3 class="text-2xl font-semibold tracking-tight mb-2">Inquiry Received</h3>
-        <p class="text-white/70 max-w-xs mx-auto">Thank you. A member of our team will personally respond within 24 hours to discuss next steps.</p>
+        <h3 class="text-2xl font-semibold tracking-tight mb-2">Email draft ready</h3>
+        <p class="text-white/70 max-w-xs mx-auto">Your inquiry has been added to an email draft. Send it to begin the conversation about aicloud.contact.</p>
         <button type="button" onclick="resetForm()"
                 class="mt-6 text-sm font-medium text-white/60 hover:text-white underline underline-offset-4">Submit another inquiry</button>
       </div>
@@ -451,26 +478,28 @@ const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/dde4b214-5
 
       const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
       if (!submitBtn) return;
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Processing...';
+      submitBtn.innerHTML = 'Opening email...';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        form.style.display = 'none';
-        if (successMsg) {
-          successMsg.classList.remove('hidden');
-          successMsg.classList.add('block');
-        }
+      const value = (id: string) =>
+        (document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement)?.value || '';
+      const subject = encodeURIComponent('Acquisition Inquiry - aicloud.contact');
+      const body = encodeURIComponent([
+        `Name: ${value('name')}`,
+        `Email: ${value('email')}`,
+        `Organization or intended use: ${value('org')}`,
+        `Offer: ${value('offer')}`,
+        `Timeline: ${value('timeline')}`,
+        '',
+        value('message'),
+      ].join('\n'));
 
-        console.log('%c[aicloud.contact] New inquiry submitted:', 'color:#64748b', {
-          name: (document.getElementById('name') as HTMLInputElement)?.value,
-          email: (document.getElementById('email') as HTMLInputElement)?.value,
-          org: (document.getElementById('org') as HTMLInputElement)?.value,
-          offer: (document.getElementById('offer') as HTMLInputElement)?.value,
-          timeline: (document.getElementById('timeline') as HTMLSelectElement)?.value,
-          message: (document.getElementById('message') as HTMLTextAreaElement)?.value,
-        });
-      }, 850);
+      window.location.href = `mailto:sales@desertrich.com?subject=${subject}&body=${body}`;
+      form.style.display = 'none';
+      if (successMsg) {
+        successMsg.classList.remove('hidden');
+        successMsg.classList.add('block');
+      }
     });
   }
 
