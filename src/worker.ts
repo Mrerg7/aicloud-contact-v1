@@ -4,6 +4,15 @@ interface Env {
 
 const CANONICAL_HOST = 'aicloud.contact';
 const CANONICAL_ORIGIN = `https://${CANONICAL_HOST}`;
+const SECURITY_HEADERS = {
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Content-Security-Policy':
+    "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://imagedelivery.net data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'",
+};
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
@@ -12,7 +21,22 @@ export default {
       return Response.redirect(redirectUrl, 301);
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    const headers = new Headers(response.headers);
+
+    for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
+      headers.set(name, value);
+    }
+
+    if (new URL(request.url).pathname.startsWith('/_astro/')) {
+      headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
   },
 };
 
